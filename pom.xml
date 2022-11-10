@@ -15,9 +15,11 @@
         <selenide-appium.version>1.7.2</selenide-appium.version>
         <junit.version>5.8.0-M1</junit.version>
         <slf4j.version>1.7.30</slf4j.version>
+        <rest.assured.version>4.3.3</rest.assured.version>
         <allure-junit5.version>2.15.0</allure-junit5.version>
         <allure-selenide.version>2.15.0</allure-selenide.version>
         <allure.version>2.10.0</allure.version>
+        <allure-rest-assured.version>2.17.3</allure-rest-assured.version>
         <owner.version>1.0.12</owner.version>
         <aspectj.version>1.9.6</aspectj.version>
         <maven.surefire.plugin.version>3.0.0-M5</maven.surefire.plugin.version>
@@ -46,6 +48,17 @@
             <groupId>com.github.automatedowl</groupId>
             <artifactId>allure-environment-writer</artifactId>
             <version>1.0.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-rest-assured -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-rest-assured</artifactId>
+            <version>${allure-rest-assured.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${rest.assured.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
         <dependency>
