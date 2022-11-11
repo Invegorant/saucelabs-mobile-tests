@@ -61,7 +61,8 @@ public class BurgerMenuTests extends BaseSetup
             mainActivityPage.burgerMenu.selectAndOpenModule(BurgerMenuComponent.BurgerMenuModulesEnum.About);
             mainActivityPage.checkModuleHeader(BurgerMenuComponent.BurgerMenuModulesEnum.About.name());
         });
-    } @Test
+    }
+    @Test
     @Tags({ @Tag("TESTAPP"), @Tag("FINGERPRINT")})
     @Story("Check Burger Menu")
     @Description("Check 'FingerPrint' module is opened from 'Burger Menu'")
