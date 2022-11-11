@@ -53,7 +53,7 @@ public class BaseSetup extends AndroidDriverProvider
     {
         envBrowserstack,
         envLocal,
-        envEmuAndroid,
+        envEmu,
     }
 
     @BeforeAll
@@ -116,21 +116,22 @@ public class BaseSetup extends AndroidDriverProvider
         passWord = MobileConfigHelper.password();
         localeTag = MobileConfigHelper.localeTag();
         appiumHost = MobileConfigHelper.appiumHost();
-        appURL = MobileConfigHelper.appURL();
+//        appURL = MobileConfigHelper.appURL();
         capabilities = MobileConfigHelper.capabilities();
         osVersion = MobileConfigHelper.osVersion();
         deviceName = MobileConfigHelper.deviceName();
         deviceOrientation = MobileConfigHelper.deviceOrientation();
         buildName = MobileConfigHelper.buildName();
-        //    parseCapabilitiesFiles(System.getProperty("capabilities", getEnvVar("capabilities", String.valueOf(Capabilities.capabilitiesLocal))));
         parseCapabilitiesFiles(capabilities);
-        //    parseCapabilitiesFiles(System.getProperty(capabilities));
         if (capabilities_vars.containsKey("browserstack.user"))
         {
             changeExactCapability("build", buildName);
             changeExactCapability("app", appURL);
             changeExactCapability("os_version", osVersion);
         }
+//        String separator = File.separator;
+//        changeExactCapability("app", System.getProperty("user.dir") + separator + "test" + separator + "resources"
+//                + separator + "apk" + separator + capabilities_vars.get("app"));
         changeExactCapability("device", deviceName);
         changeExactCapability("deviceOrientation", deviceOrientation);
     }
@@ -152,8 +153,6 @@ public class BaseSetup extends AndroidDriverProvider
         allureEnvironmentWriter(
                 ImmutableMap.<String, String>builder()
                         .putAll(capabilities_vars)
-                        .put("Working Host", workingHost)
-                        .put("login", login)
                         .put("url", appiumHost)
                         .put("tags", System.getProperty("groups", ""))
                         .put("global environment", System.getenv().toString())
